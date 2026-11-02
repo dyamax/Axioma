@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* > ::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  font-family: "henken grotesk", sans-serif;
+  font-weight: 600;
+  font-size: medium;
+
+  --theme-color: #3479f8;
+  --theme-color-lighter: #599afa;
+  --theme-secondary-color: #69d068;
+  --theme-secondary-color-lighter: #87e18d;
+  --theme-warning-color: #c30700;
+  --theme-warning-color-lighter: #ee7a77;
+  --theme-warning-color-opaque: #ec534e5b;
+  --theme-orange-color: #f09849;
+  --theme-orange-color-lighter: #f4ba80;
+  --theme-orange-color-opaque: #f0974945;
+  
+  --btn-shadow-color: rgb(255,255,255,.3);
+  --btn-hover-shadow-color: rgb(75,75,75,.3);
+
+  --theme-blue-gradient: linear-gradient(to bottom, #599afa, var(--theme-color));
+  --theme-green-gradient: linear-gradient(to bottom, #87e18d, #69d068);  
+}
+
+root, [data-theme='dark'] {
+  --theme-indicator-color: #000;
+  --theme-bg-color: #000000;
+  --theme-frame-color: #dedede;
+  --theme-frame-color-opaque: #ffffffce;
+  --theme-frame-color-lighter: #f0f0f0;
+  --theme-frame-color-darker: #8b8b8b;
+  --text-primary-color: var(--theme-bg-color);
+  --text-primary-white-color: var(--theme-frame-color);
+  --text-secondary-color: #9a9a9a;
+  --text-tetriary-color: #9a9a9a7d;
+}
+
+[data-theme='purple'] {
+  --theme-indicator-color: #9b2fff;
+  --theme-bg-color: #000;
+  --theme-frame-color: #9b2fff;
+  --theme-frame-color-opaque: #9a2fff86;
+  --theme-frame-color-lighter: #bf7bffdd;
+  --text-primary-color: #fff;
+}
+
+body {
+  height: 100%;
+  background: var(--theme-bg-color);
+  overflow: hidden;
+}
+
+strong {
+  font-weight: 900;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#root::before,
+#root::after {
+  top: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  inset: 0;
+}
+
+#root::before {
+  background: var(--theme-bg-color);
+  z-index: -2;
+}
+
+#root::after {
+  background: url("/images/app.theme.png");
+  background-position: center;
+  background-size: cover;
+  filter: opacity(.15);
+  z-index: -1;
+}

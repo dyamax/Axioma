@@ -1,0 +1,155 @@
+.overlay {
+    --blur: 1px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--theme-bg-color), transparent 30%);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    z-index: 9999;
+}
+
+.message {
+    width: min(704px, 80%);
+    min-height: 130px;
+    height: fit-content;
+    margin-top: -20%;
+    padding: 16px;
+    background: var(--theme-frame-color);
+    border-radius: 27px;
+}
+
+.message h1 {
+    padding-left: 4px;
+    font-size: 20px;
+    text-transform: capitalize;
+    background: var(--theme-color);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.message p {
+    margin: 10px 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary-color);
+}
+
+.message h3 {
+    color: var(--text-secondary-color);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.silence_option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    height: 18px;
+    margin-top: 16px;
+    padding-left: 8px;
+
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;  
+        width: 18px;
+        height: 18px;
+        border: solid 1.7px #ccc;
+        border-radius: 6px;
+        background-color: var(--theme-frame-color-lighter);
+        cursor: pointer;
+        display: inline-grid;
+        place-content: center;
+        transition: .2s;
+    }
+    
+    input[type="checkbox"]:checked {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+        border-radius: 3px;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
+        box-shadow: 
+            0 0 .1vh var(--theme-color),
+            0 0 .2vh var(--theme-color),
+            0 0 .3vh var(--theme-color),
+            0 0 .4vh var(--theme-color),
+            0 0 .5vh var(--theme-color),
+            0 0 .6vh var(--theme-color),
+            0 0 .7vh var(--theme-color),
+            0 0 .8vh var(--theme-color),
+            0 0 .9vh var(--theme-color),
+            0 0 1vh var(--theme-color);
+    }
+    
+    input[type="checkbox"]:checked::before {
+        content: "✓";
+        color: var(--text-primary-white-color);
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    label {
+        font-size: 14px;
+        font-weight: 500;
+        transition: .2s;
+    }
+
+    input[type="checkbox"]:checked ~ label {
+        color: var(--theme-color);
+    }
+}
+
+.actions {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 12px;
+}
+
+.actions button {
+    all: unset;
+    min-width: 32px;
+    padding: 4px 12px;
+    background: var(--theme-color);
+    border-radius: 100px;
+    color: var(--text-primary-white-color);
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.cancel_btn {
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    transform: scale(.92) !important;
+}
+
+.actions button:last-child {
+    box-shadow: 
+        0 0 .1vh var(--theme-color),
+        0 0 .2vh var(--theme-color),
+        0 0 .3vh var(--theme-color),
+        0 0 .4vh var(--theme-color),
+        0 0 .5vh var(--theme-color),
+        0 0 .6vh var(--theme-color),
+        0 0 .7vh var(--theme-color),
+        0 0 .8vh var(--theme-color),
+        0 0 .9vh var(--theme-color),
+        0 0 1vh var(--theme-color),
+        0 0 1.5vh var(--theme-color),
+        0 0 2vh var(--theme-color);
+}
