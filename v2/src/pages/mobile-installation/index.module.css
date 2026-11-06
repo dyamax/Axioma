@@ -109,7 +109,7 @@
     
     summary::before {
         --size: 18px;
-        background: url('/icons/not-standalone-case/plus.romb.svg');
+        background: var(--asset-plus-icon);
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -119,7 +119,7 @@
     }
     
     details[open] summary::before {
-        background: url('/icons/not-standalone-case/minus.romb.svg');
+        background: var(--asset-minus-icon);
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;

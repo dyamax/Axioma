@@ -517,8 +517,8 @@ const flat2Field = (
 
 // Configurational constants
 const Folders = {
-  'images': `/images`,
-  'icons': `/icons`,
+  'images': `${new URL('.', window.location.href).pathname}images`,
+  'icons': `${new URL('.', window.location.href).pathname}icons`,
 }
 const colsPerRow = 9
 const DEFAULT_NUMBER_SET =[1,2,3,4,5,6,7,8,9,1,1,1,2,1,3,1,4,1,5,1,6,1,7,1,8,1,9]

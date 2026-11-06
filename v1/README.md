@@ -1,86 +1,18 @@
-# Axioma Game v1
+# Axioma — Version 1
 
-This folder contains the first game implementation: its React/TypeScript source is in `src/`, and its version-specific static assets are in `public/`.
+## At a glance
 
-The Vite, TypeScript, and ESLint configuration and npm dependencies are shared from the repository root. Install dependencies there once with `npm install`.
+Version 1 presents the puzzle as a compact, dark board. The score and rank sit above the numbers, with the game controls and stats arranged around the play area.
 
-## Commands
+## Playing
 
-Run the v1 development server from the repository root:
+Select two numbers that are the same or add up to 10. They can be matched when every number between them in the reading order has been cleared, or when they are in the same column with only cleared spaces between them. Diagonal matches are not allowed.
 
-```sh
-npm run dev:v1
-```
+Clear the whole field to finish the puzzle. When no useful pair is available, deal the remaining numbers again at the end of the field. Dealing becomes available after your first match; new numbers cost points, while completely cleared rows earn points when removed.
 
-Build v1 into the root `dist/` directory:
+## What this version offers
 
-```sh
-npm run build:v1
-```
-
-Publish that build to the configured GitHub Pages branch:
-
-```sh
-npm run deploy:v1
-```
-
-The game entry point is `src/main.tsx`; the main game implementation is `src/game/Game.tsx`.
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- A single dark appearance.
+- A preview of the next deal, so you can see how the field will grow before adding numbers.
+- Score, rank, time, moves, deals, and detailed match statistics.
+- Progress and theme preferences that are saved as you play.

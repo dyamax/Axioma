@@ -8,8 +8,8 @@ export const LS_SCHEME = {
 }
 
 export const FOLDERS = {
-  'images': isDeployPush ? `/Axioma/images` : `/images`,
-  'icons': isDeployPush ? `/Axioma/icons` : `/icons`,
+  'images': `${new URL('.', window.location.href).pathname}images`,
+  'icons': `${new URL('.', window.location.href).pathname}icons`,
 }
 
 export const CGAME = {

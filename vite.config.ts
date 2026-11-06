@@ -7,21 +7,16 @@ const root = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig(({ mode }) => {
   const version = mode === 'v1' ? 'v1' : 'v2'
+  const versionRoot = resolve(root, version)
 
   return {
-    base: version === 'v1' ? '' : './',
-    publicDir: resolve(root, version, 'public'),
-    plugins: [
-      react(),
-      {
-        name: 'select-game-version-entry',
-        transformIndexHtml: {
-          order: 'pre',
-          handler(html) {
-            return html.replace('__GAME_ENTRY__', `/${version}/src/main.tsx`)
-          },
-        },
-      },
-    ],
+    root: versionRoot,
+    base: './',
+    publicDir: resolve(versionRoot, 'public'),
+    build: {
+      outDir: resolve(root, 'dist', version),
+      emptyOutDir: true,
+    },
+    plugins: [react()],
   }
 })

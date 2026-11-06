@@ -7,15 +7,15 @@
     "dev": "npm run dev:v2",
     "dev:v1": "vite --mode v1 --host --port 9999",
     "dev:v2": "vite --mode v2 --host --port 9999",
-    "build": "npm run build:v2",
+    "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && npm run build:v1 && npm run build:v2",
     "build:v1": "tsc -b tsconfig.v1.json tsconfig.node.json && vite build --mode v1",
     "build:v2": "tsc -b tsconfig.v2.json tsconfig.node.json && vite build --mode v2",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "npm run deploy:v1",
-    "deploy:v1": "npm run build:v1 && gh-pages -d dist",
-    "deploy:v2": "npm run build:v2 && gh-pages -d dist",
-    "deploy:beta": "npm run build:v2 && gh-pages -d dist -b beta"
+    "preview": "vite preview --outDir ../dist",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:v1": "npm run build && gh-pages -d dist",
+    "deploy:v2": "npm run build && gh-pages -d dist",
+    "deploy:beta": "npm run build && gh-pages -d dist -b beta"
   },
   "dependencies": {
     "react": "^19.2.7",
